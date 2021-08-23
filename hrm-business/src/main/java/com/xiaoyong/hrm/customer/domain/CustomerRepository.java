@@ -3,6 +3,9 @@ package com.xiaoyong.hrm.customer.domain;/**
  */
 
 import com.xiaoyong.hrm.support.domain.BaseRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /**
  * @ClassName CustomerRepository
@@ -12,4 +15,8 @@ import com.xiaoyong.hrm.support.domain.BaseRepository;
  * @Version 1.0.0
  **/
 public interface CustomerRepository extends BaseRepository<Customer, Integer> {
+
+    @Query("select status, count(*) from Customer where deleted=false group by status")
+    List<Object[]> getCustomerStatusStat();
+
 }

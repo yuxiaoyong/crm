@@ -22,11 +22,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaAuditing
 @EnableCaching
 @SpringBootApplication
-public class HrmSpringBootApplication extends SpringBootServletInitializer{
+public class CrmSpringBootApplication extends SpringBootServletInitializer{
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(HrmSpringBootApplication.class);
+        return application.sources(CrmSpringBootApplication.class);
     }
 
     public static void main(String[] args) throws Exception {
@@ -44,7 +44,7 @@ public class HrmSpringBootApplication extends SpringBootServletInitializer{
 //                System.out.println(method1);
 //            });
 //        });
-        SpringApplication.run(HrmSpringBootApplication.class, args);
+        SpringApplication.run(CrmSpringBootApplication.class, args);
     }
 
 }

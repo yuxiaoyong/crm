@@ -91,7 +91,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.0.4.RELEASE</version>
                 <configuration>
-                    <mainClass>com.xiaoyong.hrm.HrmSpringBootApplication</mainClass>
+                    <mainClass>com.xiaoyong.hrm.CrmSpringBootApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>
