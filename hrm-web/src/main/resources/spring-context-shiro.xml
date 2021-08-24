@@ -35,7 +35,9 @@
         <property name="cookie" ref="rememberMeCookie"/>
     </bean>
 
-    <bean id="sessionManager" class="com.xiaoyong.hrm.shiro.session.JwtWebSessionManager"></bean>
+    <bean id="sessionManager" class="com.xiaoyong.hrm.shiro.session.JwtWebSessionManager">
+        <property name="globalSessionTimeout" value="7200000"/>
+    </bean>
 
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="sessionManager" ref="sessionManager"/>
