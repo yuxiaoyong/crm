@@ -4,6 +4,7 @@ package com.xiaoyong.hrm.purchase.domain;/**
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.xiaoyong.hrm.product.domain.Product;
+import com.xiaoyong.hrm.purchase.listener.PurchaseDetailListener;
 import com.xiaoyong.hrm.support.domain.BaseEntity;
 
 import javax.persistence.*;
@@ -16,6 +17,7 @@ import java.math.BigDecimal;
  * @Date 2018/9/15 19:27
  * @Version 1.0.0
  **/
+@EntityListeners({PurchaseDetailListener.class})
 @Entity
 @Table(name = "crm_purchase_detail")
 public class PurchaseDetail extends BaseEntity{

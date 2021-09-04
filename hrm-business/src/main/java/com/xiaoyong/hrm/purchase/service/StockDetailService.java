@@ -11,4 +11,13 @@ import com.xiaoyong.hrm.support.service.BaseService;
  * @Version V1.0
  **/
 public interface StockDetailService extends BaseService<StockDetail, Integer> {
+
+    /**
+     * 根据订单号查询库存信息
+     * @param changeSerialNo 流水号
+     * @param productId 产品ID
+     * @return
+     */
+    StockDetail findByChangeSerialNoAndProductId(String changeSerialNo, Integer productId);
+
 }

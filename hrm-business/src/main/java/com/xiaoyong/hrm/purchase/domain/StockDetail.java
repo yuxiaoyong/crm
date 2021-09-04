@@ -4,6 +4,7 @@ import com.xiaoyong.hrm.product.domain.Product;
 import com.xiaoyong.hrm.support.domain.BaseEntity;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * @ClassName StockDetail
@@ -19,9 +20,11 @@ public class StockDetail extends BaseEntity {
     /** 产品信息 */
     private Product product;
     /** 变更数量 */
-    private int changeQuantity;
+    private Integer changeQuantity;
     /** 变更说明 */
     private String changeRemark;
+    /** 变更时间 */
+    private Date changeTime;
     /** 变更类型 */
     private String changeType;
     /** 变更流水号（订单号或采购编号） */
@@ -38,11 +41,11 @@ public class StockDetail extends BaseEntity {
     }
 
     @Column(name = "change_quantity")
-    public int getChangeQuantity() {
+    public Integer getChangeQuantity() {
         return changeQuantity;
     }
 
-    public void setChangeQuantity(int changeQuantity) {
+    public void setChangeQuantity(Integer changeQuantity) {
         this.changeQuantity = changeQuantity;
     }
 
@@ -71,5 +74,14 @@ public class StockDetail extends BaseEntity {
 
     public void setChangeSerialNo(String changeSerialNo) {
         this.changeSerialNo = changeSerialNo;
+    }
+
+    @Column(name = "change_time")
+    public Date getChangeTime() {
+        return changeTime;
+    }
+
+    public void setChangeTime(Date changeTime) {
+        this.changeTime = changeTime;
     }
 }

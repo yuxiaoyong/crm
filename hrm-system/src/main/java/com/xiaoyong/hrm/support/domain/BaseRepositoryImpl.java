@@ -40,19 +40,14 @@ public class BaseRepositoryImpl<T, ID extends Serializable> extends SimpleJpaRep
     }
 
     public List<T> findByDslParamMap(Map<String, Object> dslParamMap){
-        return hqlQueryBuilder.buildListQuery(getEntityClass(), dslParamMap, null).getResultList();
+        return hqlQueryBuilder.buildListQuery(getDomainClass(), dslParamMap, null).getResultList();
     }
 
     public Page<T> findByDslParamMap(Map<String, Object> dslParamMap, Pageable pageable){
-        List<T> content = hqlQueryBuilder.buildListQuery(getEntityClass(), dslParamMap, pageable).getResultList();
-        Long total = hqlQueryBuilder.buildCountQuery(getEntityClass(), dslParamMap).getSingleResult();
+        List<T> content = hqlQueryBuilder.buildListQuery(getDomainClass(), dslParamMap, pageable).getResultList();
+        Long total = hqlQueryBuilder.buildCountQuery(getDomainClass(), dslParamMap).getSingleResult();
         return new PageImpl<T>(content, pageable, total);
     }
 
-    private Class getEntityClass(){
-        Type genType = getClass().getGenericSuperclass();
-        Type[] param = ((ParameterizedType) genType).getActualTypeArguments();
-        return (Class<?>) param[0];
-    }
 
 }

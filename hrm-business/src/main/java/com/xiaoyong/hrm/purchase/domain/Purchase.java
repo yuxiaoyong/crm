@@ -20,6 +20,8 @@ import java.util.List;
 @Table(name = "crm_purchase")
 public class Purchase extends BaseEntity {
 
+    /** 流水号 */
+    private String serialNo;
     //单据编号
     private String serialNum;
     //供货单位
@@ -34,6 +36,15 @@ public class Purchase extends BaseEntity {
     private BigDecimal amount;
     //订单详情
     private List<PurchaseDetail> details;
+
+    @Column(name = "serial_no")
+    public String getSerialNo() {
+        return serialNo;
+    }
+
+    public void setSerialNo(String serialNo) {
+        this.serialNo = serialNo;
+    }
 
     @Column(name = "serial_num", length = 20, nullable = false)
     public String getSerialNum() {

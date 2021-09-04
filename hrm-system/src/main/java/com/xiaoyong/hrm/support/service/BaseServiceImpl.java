@@ -100,6 +100,16 @@ public abstract class BaseServiceImpl<T extends BaseEntity, ID> implements BaseS
 
     @Transactional
     @Override
+    public void deleteById(ID id, boolean physical) {
+        if(physical) {
+            repository.deleteById(id);
+        }else{
+            deleteById(id);
+        }
+    }
+
+    @Transactional
+    @Override
     public void deleteByIds(ID[] ids) {
         for(ID id: ids){
             deleteById(id);

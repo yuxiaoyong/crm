@@ -18,30 +18,32 @@ import java.util.Map;
  **/
 public interface BaseService<T extends BaseEntity, ID> {
 
-    public T save(T entity);
+    T save(T entity);
 
-    public T create(T entity);
+    T create(T entity);
 
-    public T update(T entity);
+    T update(T entity);
 
-    public void deleteById(ID id);
+    void deleteById(ID id);
 
-    public void deleteByIds(ID[] ids);
+    void deleteById(ID id, boolean physical);
 
-    public T findById(ID id);
+    void deleteByIds(ID[] ids);
 
-    public List<T> findByExample(T entity);
+    T findById(ID id);
 
-    public List<T> findByExample(T entity, Sort sort);
+    List<T> findByExample(T entity);
 
-    public Page<T> findByExample(T entity, Pageable pageable);
+    List<T> findByExample(T entity, Sort sort);
 
-    public Page<T> findByExample(Example<T> example, Pageable pageable);
+    Page<T> findByExample(T entity, Pageable pageable);
 
-    public List<T> findByDslParamMap(Map<String, Object> params);
+    Page<T> findByExample(Example<T> example, Pageable pageable);
 
-    public List<T> findByDslParamMap(Map<String, Object> params, Sort sort);
+    List<T> findByDslParamMap(Map<String, Object> params);
 
-    public Page<T> findByDslParamMap(Map<String, Object> params, Pageable pageable);
+    List<T> findByDslParamMap(Map<String, Object> params, Sort sort);
+
+    Page<T> findByDslParamMap(Map<String, Object> params, Pageable pageable);
 
 }

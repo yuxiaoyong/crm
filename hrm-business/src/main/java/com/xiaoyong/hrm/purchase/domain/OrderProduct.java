@@ -2,6 +2,7 @@ package com.xiaoyong.hrm.purchase.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.xiaoyong.hrm.product.domain.Product;
+import com.xiaoyong.hrm.purchase.listener.OrderProductListener;
 import com.xiaoyong.hrm.support.domain.BaseEntity;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import javax.persistence.*;
  * @Date 2021/8/26 22:11
  * @Version V1.0
  **/
+@EntityListeners({OrderProductListener.class})
 @Entity
 @Table(name = "crm_order_product")
 public class OrderProduct extends BaseEntity {
@@ -22,7 +24,7 @@ public class OrderProduct extends BaseEntity {
     /** 产品信息 */
     private Product product;
     /** 订购数量 */
-    private int quantity;
+    private Integer quantity;
 
     @JsonIgnore
     @ManyToOne
@@ -46,11 +48,11 @@ public class OrderProduct extends BaseEntity {
     }
 
     @Column(name = "quantity")
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 }

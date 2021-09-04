@@ -24,8 +24,14 @@ public class OrderServiceImpl extends BaseServiceImpl<Order, Integer> implements
     @Override
     public Order save(Order entity) {
         if(StringUtils.isEmpty(entity.getSerialNo())){
-            entity.setSerialNo("OID" + DateFormatUtils.format(new Date(), "yyyyMMddHHmm"));
+            entity.setSerialNo("OID" + DateFormatUtils.format(new Date(), "yyyyMMddHHmmss"));
         }
         return super.save(entity);
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void deleteById(Integer id) {
+        repository.deleteById(id);
     }
 }

@@ -19,18 +19,20 @@ import javax.persistence.Table;
 @Table(name = "crm_product")
 public class Product extends BaseEntity {
 
-    //产品名称
+    /** 产品名称 */
     private String name;
-    //产品型号
+    /** 产品型号 */
     private String type;
-    //产品规格
+     /** 产品规格 */
     private String packing;
-    //产品简介
+     /** 产品简介 */
     private String introduction;
-    //进货单价（元）
+     /** 进货单价（元） */
     private Float purchasePrice;
-    //销售单价（元）
+     /** 销售单价（元）*/
     private Float sellingPrice;
+    /** 剩余数量 */
+    private Integer quantity;
 
     @Column(name = "name", length = 200, nullable = false)
     public String getName() {
@@ -84,5 +86,14 @@ public class Product extends BaseEntity {
 
     public void setPacking(String packing) {
         this.packing = packing;
+    }
+
+    @Column(name = "quantity")
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 }
